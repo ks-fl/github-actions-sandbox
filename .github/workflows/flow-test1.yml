@@ -1,0 +1,45 @@
+name: flow-test1
+on:
+  workflow_dispatch:
+    inputs:
+      target_ref:
+        description: "target"
+        required: true
+        default: main
+        type: string
+      type:
+        description: "Type"
+        required: true
+        default: type-a
+        type: choice
+        options:
+          - type-a
+          - type-b
+
+
+jobs:
+  flow:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.target_ref }}
+
+      - name: job-a
+        if: github.event.inputs.type == 'type-a'
+        run: make test
+        env:
+          VAR1: type-a-var1
+          VAR2: type-a-var2
+
+      - name: job-b
+        if: github.event.inputs.type == 'type-b'
+        run: make test
+        env:
+          VAR1: type-b-var1
+          VAR2: type-b-var2
+          
