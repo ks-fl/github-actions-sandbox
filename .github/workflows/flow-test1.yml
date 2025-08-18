@@ -47,4 +47,11 @@ jobs:
         env:
           VAR1: type-b-var1
           VAR2: type-b-var2
+
+      - name: type none
+        if: github.event.inputs.type == ''
+        run: make test
+        env:
+          VAR1: type-none
+          VAR2: type-none
           
