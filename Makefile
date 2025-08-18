@@ -5,3 +5,5 @@ test:
 	@echo $(VAR1)
 	@echo $(VAR2)
 
+test2:
+	@echo $(VAR1)

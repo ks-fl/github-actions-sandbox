@@ -20,7 +20,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/**/*'
+      - '**/*'
 
 jobs:
   flow:
