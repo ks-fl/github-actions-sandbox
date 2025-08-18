@@ -16,6 +16,9 @@ on:
           - type-a
           - type-b
 
+  push:
+    paths:
+      - './*'
 
 jobs:
   flow:
