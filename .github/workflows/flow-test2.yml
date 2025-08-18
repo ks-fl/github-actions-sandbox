@@ -1,4 +1,4 @@
-name: flow-test1
+name: flow-test2
 on:
   workflow_dispatch:
     inputs:
@@ -20,7 +20,7 @@ on:
     branches:
       - main
     paths:
-      - './*'
+      - '**/*'
 
 jobs:
   flow:
