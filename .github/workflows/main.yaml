@@ -1,4 +1,4 @@
-name: flow-test1
+name: main
 on:
   workflow_dispatch:
     inputs:
@@ -31,7 +31,7 @@ jobs:
       - name: job-a
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: ${{ github.event.inputs.target_app }}.yaml
+          workflow: .github/workflows/${{ github.event.inputs.target_app }}.yaml
           inputs: '{ "target_ref": "${{ github.event.inputs.target_ref }}" }'
           token: ${{ secrets.GITHUB_TOKEN }}
           
