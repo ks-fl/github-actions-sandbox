@@ -13,6 +13,7 @@ on:
         default: flow-test1
         type: choice
         options:
+          - ""
           - flow-test1
           - flow-test2
 
